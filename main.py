@@ -12,7 +12,7 @@ def join_files(dir):
     file_len = {}
     for fn in list_dir:
         # print(fn)
-        f = open(fn)
+        f = open(fn,"r",encoding="utf-8")
         file_len[fn] = len(f.readlines())
         f.close()
     # print(file_len)
@@ -21,7 +21,7 @@ def join_files(dir):
     # print(file_len)
     output = open('output.txt',"w")
     for fn in file_len:  # [('4.txt', 1), ('output.txt', 1), ('2.txt', 2), ('1.txt', 3), ('3.txt', 4)]
-        with open(fn[0]) as f:
+        with open(fn[0],"r",encoding="utf-8") as f:
             output.write(fn[0]+'\n')
             output.write(str(fn[1])+'\n')
             for str1 in f:
